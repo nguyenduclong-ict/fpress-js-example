@@ -1,0 +1,9 @@
+{
+    "name": "fpress-template",
+    "version": "1.0.0",
+    "author": "Long Nguyễn Đức <nguyenduclong.ict@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "fpress": "/Users/longn/Code/Development/fpress"
+    }
+}
