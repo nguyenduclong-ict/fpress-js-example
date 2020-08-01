@@ -1,0 +1,19 @@
+{
+    "CRUD": {
+        "scope": "javascript",
+        "prefix": "crud",
+        "body": ["const { crud } = require('fpress')", "crud(router, $1)"]
+    },
+    "handle": {
+        "scope": "javascript",
+        "prefix": "handle",
+        "body": [
+            "/**",
+            "* @param {express.Request} req;",
+            "* @param {express.Response} res;",
+            "* @param {express.NextFunction} next",
+            "* */",
+            "async function $1(req, res, next) {}"
+        ]
+    }
+}

@@ -9,9 +9,13 @@
     },
     "dependencies": {
         "dotenv": "^8.2.0",
-        "fpress": "https://github.com/nguyenduclong-ict/fpress.git"
+        "fpress": "https://github.com/nguyenduclong-ict/fpress.git",
+        "multer": "^1.4.2"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"
+    },
+    "_alias": {
+        "@": "./"
     }
 }

@@ -1,3 +1,4 @@
+require('fpress').registerAlias()
 require('dotenv').config()
 require('./configs/env')
 const { fPress } = require('fpress')
