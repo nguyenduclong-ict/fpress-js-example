@@ -3,7 +3,11 @@
     "version": "1.0.0",
     "author": "Long Nguyễn Đức <nguyenduclong.ict@gmail.com>",
     "license": "MIT",
+    "scripts": {
+        "prettier": "prettier --config .prettierrc --write './**/*.{ts,js,json}'"
+    },
     "dependencies": {
-        "fpress": "/Users/longn/Code/Development/fpress"
+        "dotenv": "^8.2.0",
+        "fpress": "https://github.com/nguyenduclong-ict/fpress.git"
     }
 }

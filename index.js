@@ -1,4 +1,5 @@
+require('dotenv').config()
 require('./configs/env')
-const fpress = require('fpress').default
+const { fPress } = require('fpress')
 
-fpress.create().registerAllService().start()
+fPress.create().registerAllService().start()
