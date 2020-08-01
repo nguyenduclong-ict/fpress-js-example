@@ -4,10 +4,14 @@
     "author": "Long Nguyễn Đức <nguyenduclong.ict@gmail.com>",
     "license": "MIT",
     "scripts": {
+        "dev": "nodemon",
         "prettier": "prettier --config .prettierrc --write './**/*.{ts,js,json}'"
     },
     "dependencies": {
         "dotenv": "^8.2.0",
         "fpress": "https://github.com/nguyenduclong-ict/fpress.git"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
     }
 }
