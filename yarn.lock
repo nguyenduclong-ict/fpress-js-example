@@ -655,7 +655,7 @@ forwarded@~0.1.2:
 
 "fpress@https://github.com/nguyenduclong-ict/fpress.git":
   version "0.0.1"
-  resolved "https://github.com/nguyenduclong-ict/fpress.git#db0aa7b42b3e13fe32e75c66fa379d164c99a0aa"
+  resolved "https://github.com/nguyenduclong-ict/fpress.git#9ef043c213b1b673f9ae7eac5ed3d36495c05ae4"
   dependencies:
     "@types/express" "^4.17.7"
     "@types/mongoose" "^5.7.34"
