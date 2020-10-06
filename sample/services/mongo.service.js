@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { ConfigProvider } = require('../data/Config')
+const { ConfigProvider } = require('../../data/Config')
 
 module.exports = function (server, app) {
     return new Promise((resolve) => {

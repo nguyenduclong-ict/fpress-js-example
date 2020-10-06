@@ -1,3 +1,3 @@
 module.exports = function (server, app) {
-    console.log('index service')
+    console.log('Base service work')
 }

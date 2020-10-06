@@ -1,7 +1,2 @@
-const { CreateValidator, checks } = require('fpress')
-module.exports.ValidateBody = CreateValidator(
-    {
-        name: checks.string,
-    },
-    'body'
-)
+const { CreateValidator, checks: c } = require("fpress");
+module.exports.ValidateBody = CreateValidator({});

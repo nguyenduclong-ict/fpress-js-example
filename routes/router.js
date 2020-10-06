@@ -1,9 +1,9 @@
-const router = require('express').Router()
+const express = require('express')
+const router = express.Router()
 const validator = require('./validator')
-const { CustomError } = require('fpress/dist')
 // ------- Declare router -------
 router.get('/', (req, res, next) => {
-    res.send('Server work!')
+    res.send('server work!')
 })
 // ------------------------------
 module.exports = router
