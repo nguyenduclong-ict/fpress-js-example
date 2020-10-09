@@ -2,12 +2,10 @@ const { Schema, model } = require('mongoose')
 const { Types } = Schema
 
 const schema = new Schema({
-    key: {
+    name: {
         type: String,
-        unique: true,
+        required: true,
     },
-    value: Types.Mixed,
-    type: String,
     isSystem: {
         type: Boolean,
         default: false,
@@ -18,4 +16,4 @@ const schema = new Schema({
 // HOOKS
 
 // END HOOKS
-module.exports = model('Config', schema)
+module.exports = model('Taxonomy', schema)

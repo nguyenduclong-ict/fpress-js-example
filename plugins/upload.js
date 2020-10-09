@@ -2,6 +2,9 @@ const { execSync } = require('child_process')
 const multer = require('multer')
 const path = require('path')
 const { CustomError } = require('fpress')
+const slugify = require('slugify')
+const { ObjectId } = require('mongodb')
+const sharp = require('sharp')
 
 // Setup multer
 const uploadPath = process.env.UPLOAD_PATH
@@ -21,12 +24,12 @@ const storage = multer.diskStorage({
         const { user } = req
         const arr = []
         // Prepare upload dir
+        const timePath = `${now.getFullYear()}-${now.getMonth() + 1}`
         if (user) {
             const userPath = user.username
-            const timePath = `${now.getFullYear()}-${now.getMonth() + 1}`
-            arr.push('private', userPath, timePath)
+            arr.push('user', userPath, timePath)
         } else {
-            arr.push('anonymus')
+            arr.push('anonymus', timePath)
         }
         const des = path.join(uploadPath, ...arr)
         execSync(`mkdir -p ${des}`)
@@ -34,8 +37,10 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         const { name, ext } = path.parse(file.originalname)
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9)
-        const filename = `${uniqueSuffix}-${name}${ext}`
+        const uniqueSuffix = Date.now() + '-' + new ObjectId().toHexString()
+        const filename = slugify(`${uniqueSuffix}-${name}${ext}`, {
+            lower: true,
+        })
         cb(null, filename)
     },
 })
@@ -54,4 +59,18 @@ function fileFilter(req, file, cb) {
 }
 const upload = multer({ storage, fileFilter })
 
-module.exports = { upload, storage }
+async function createImageThumbnails(file) {
+    const { path: originPath, ext } = file
+    const thumb = {
+        320: `${originPath}`.replace(new RegExp(`${ext}$`), `-320${ext}`),
+        128: `${originPath}`.replace(new RegExp(`${ext}$`), `-128${ext}`),
+    }
+    await Promise.all(
+        Object.keys(thumb).map((size) =>
+            sharp(originPath).resize(Number(size)).toFile(thumb[size])
+        )
+    )
+    return thumb
+}
+
+module.exports = { upload, storage, createImageThumbnails }

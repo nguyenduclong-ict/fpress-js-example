@@ -8,9 +8,15 @@
         "prettier": "prettier --config .prettierrc --write './**/*.{ts,js,json}'"
     },
     "dependencies": {
+        "axios": "^0.20.0",
+        "bcrypt": "^5.0.0",
         "dotenv": "^8.2.0",
         "fpress": "https://github.com/nguyenduclong-ict/fpress.git",
-        "multer": "^1.4.2"
+        "jsonwebtoken": "^8.5.1",
+        "mongoose-slug-updater": "^3.2.3",
+        "multer": "^1.4.2",
+        "sharp": "^0.26.1",
+        "slugify": "^1.4.5"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"
